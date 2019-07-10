@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+body{
+    background: url("assets/meal.jpg") no-repeat;
+    background-size: cover;
+}
+h1,h2,h3{
+    color: #fff;
+}
+.line{
+    width: 200px;
+    border: 1px solid #fff;
+    background: none;
+    position: relative;
+    left: 42.5%;
+}
+@media screen and (max-width: 750px) {
+    .line{
+        left: 35%;
+    }
+}
