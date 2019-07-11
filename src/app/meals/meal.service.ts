@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Meals } from '../meals';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class MealService {
   getMeals() {
     return Meals;
