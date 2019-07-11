@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Meal } from '../meal';
 @Component({
   selector: 'app-meal-detail',
   templateUrl: './meal-detail.component.html',
@@ -7,8 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MealDetailComponent implements OnInit {
 
-  constructor() { }
+  @Input() meal: Meal;
+  @Output() isComplete = new EventEmitter<boolean>();
 
+  mealDelete(complete: boolean) {
+    this.isComplete.emit(complete);
+  }
   ngOnInit() {
   }
 

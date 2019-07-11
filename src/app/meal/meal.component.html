@@ -1,3 +1,21 @@
 <div class="container">
-    <app-meal-form></app-meal-form>
+    <app-meal-form (addMeal)="addNewMeal($event)"></app-meal-form>
+    <h3>My Meal</h3>
+    <hr>
+  
+    <div class="row">
+      <div class="col-md-6">
+        <div *ngFor='let meal of meals;let i = index'>
+          <div>
+            <h4 id={{i}} appStrikethrough>{{meal.meal}}</h4>
+            <button (click)='toggleDetails(i)' class="btn btn-primary">Toggle Details</button>
+          </div>
+  
+          <div *ngIf='meal.showDescription'>
+            <app-meal-detail  [meal]='meal' (isComplete) = 'deleteMeal($event,i)'></app-meal-detail>
+          </div>
+        </div>
+      </div>
+  
+    <p *ngIf='meals.length > 5'>You have too many meals</p>
 </div>

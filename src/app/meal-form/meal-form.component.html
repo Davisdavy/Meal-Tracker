@@ -1,25 +1,33 @@
 <div class="container-fluid">
-    <h2 class="text-center">Create a new Goal</h2>
+    <h2 class="text-center">Track Your Meal</h2>
     <hr>
     <div class="line-outline">
-    <form>
+    <form (ngSubmit)='submitMeal()' #mealForm='ngForm' >
         <div class="form-group">
   
-            <label for="name">Meal</label>
-            <input type="text" required class="form-control" id="name">
-  
+            <label for="meal">Meal</label>
+            <input type="text" required class="form-control" [(ngModel)]="newMeal.meal" name="meal" #meal='ngModel' id="meal">
+            <div [hidden]="meal.valid || meal.pristine" class="alert alert-danger">
+                <p>Meal name is required</p>
+            </div>
+            
         </div>
         <div class="form-group">
   
-            <label for="description">Calorie count</label>
-            <input type='number' required class="form-control" id="complete" required>
-  
+            <label for="calorie">Calorie count</label>
+            <input type="number" required class="form-control" [(ngModel)]="newMeal.calorie" name="calorie" #calorie='ngModel' id="calorie">
+            <div [hidden]="calorie.valid || calorie.pristine" class="alert alert-danger">
+                <p>Amount of calories is required</p>
+              </div>
         </div>
         <div class="form-group">
-            <label for="complete">Details</label>
-            <input type='text' required class="form-control" id="complete" required>
-  
+            <label for="description">Details</label>
+            <textarea class="form-control" id="description" rows="4" [(ngModel)]="newMeal.description" name="description" #description="ngModel" required></textarea>
+            <div [hidden]="description.valid || description.pristine" class="alert alert-danger">
+                <p>Description is required</p>
+              </div>
         </div>
+        <button type="submit" class="btn btn-success">Add Meal</button>
     </form>
     </div>
   </div>
