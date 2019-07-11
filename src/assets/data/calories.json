@@ -1,0 +1,6 @@
+[
+    {"id": 1, "meal": "Baked Beans", "calorie":190, "description":"Can stored baked beans"},
+    {"id": 1, "meal": "Butter", "calorie":102, "description":"Dairy products"},
+    {"id": 1, "meal": "Cheese", "calorie":115, "description":"Dairy products"},
+    {"id": 1, "meal": "Dark Chacolate", "calorie":190, "description":"Can stored baked beans"}
+]

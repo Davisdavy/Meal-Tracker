@@ -7,6 +7,7 @@ import { MealComponent } from './meal/meal.component';
 import { MealDetailComponent } from './meal-detail/meal-detail.component';
 import { MealFormComponent } from './meal-form/meal-form.component';
 import { HttpClientModule} from '@angular/common/http';
+import { MealService } from './meals/meal.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { HttpClientModule} from '@angular/common/http';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [MealService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
