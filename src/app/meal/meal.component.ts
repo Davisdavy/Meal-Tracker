@@ -1,16 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import {Meal} from '../meal';
+import { Meals } from '../meals';
+import { MealService } from '../meals/meal.service';
 import { from } from 'rxjs';
 
 @Component({
   selector: 'app-meal',
   templateUrl: './meal.component.html',
+  providers: [MealService],
   styleUrls: ['./meal.component.css']
 })
 export class MealComponent implements OnInit {
-  meals: Meal[] = [
-    new Meal(1, 'Rabbit pie', 200, 'Meduim oil content' ),
-  ];
+  meals: Meal[];
+  constructor(mealService: MealService) {
+    this.meals = mealService.getMeals();
+  }
+
   toggleDetails(index) {
     this.meals[index].showDescription = !this.meals[index].showDescription;
   }
@@ -30,7 +35,6 @@ export class MealComponent implements OnInit {
     meal.id = mealLength + 1;
     this.meals.push(meal);
   }
-  constructor() { }
 
   ngOnInit() {
   }
