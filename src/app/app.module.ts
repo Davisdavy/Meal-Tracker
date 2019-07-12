@@ -8,19 +8,24 @@ import { MealDetailComponent } from './meal-detail/meal-detail.component';
 import { MealFormComponent } from './meal-form/meal-form.component';
 import { HttpClientModule} from '@angular/common/http';
 import { MealService } from './meals/meal.service';
-
+import { NgProgressModule } from '@ngx-progressbar/core';
+import { NgProgressHttpModule } from '@ngx-progressbar/http';
+import { SelectComponent } from './select/select.component';
 @NgModule({
   declarations: [
     AppComponent,
     MealComponent,
     MealDetailComponent,
-    MealFormComponent
+    MealFormComponent,
+    SelectComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgProgressModule,
+    NgProgressHttpModule
   ],
   providers: [MealService],
   bootstrap: [AppComponent]

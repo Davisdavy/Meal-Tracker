@@ -19,6 +19,8 @@
     "@angular/platform-browser": "~8.0.1",
     "@angular/platform-browser-dynamic": "~8.0.1",
     "@angular/router": "~8.0.1",
+    "@ngx-progressbar/core": "^5.3.2",
+    "@ngx-progressbar/http": "^5.3.2",
     "bootstrap": "^4.3.1",
     "jquery": "^3.4.1",
     "ngx-bootstrap": "^5.0.0",

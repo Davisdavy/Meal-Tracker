@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import { url } from 'inspector';
-import { Meal } from '../meal';
-import { Observable } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+
+@Injectable()
 export class HighCaloriesService {
-  
+  highcaloriesUrl = 'assets/calories.json';
+
+  constructor(private http: HttpClient) {}
+  get highCalories() {
+    return this.http.get(this.highcaloriesUrl);
+  }
 }

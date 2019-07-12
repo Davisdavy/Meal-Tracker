@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Meal} from '../meal';
 import { Meals } from '../meals';
-
+import { HttpClient } from '@angular/common/http';
+import {Quote} from '../quote-class/quote';
 import { MealService } from '../meals/meal.service';
 import { from } from 'rxjs';
 
@@ -13,7 +14,8 @@ import { from } from 'rxjs';
 })
 export class MealComponent implements OnInit {
   meals: Meal[];
-  constructor(mealService: MealService) {
+  quote: Quote;
+  constructor(mealService: MealService, private http: HttpClient) {
     this.meals = mealService.getMeals();
   }
 
@@ -38,6 +40,12 @@ export class MealComponent implements OnInit {
   }
 
   ngOnInit() {
+    interface ApiResponse {
+      quote: string;
+      author: string;
   }
-
+    this.http.get<ApiResponse>('http://quotes.stormconsultancy.co.uk/random.json(Links to an external site.)').subscribe(data => {
+this.quote = new Quote(data.quote, data.author);
+    });
+  }
 }
